@@ -1,0 +1,58 @@
+.nav {
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color);
+  position: relative; /* Устанавливаем контекст позиционирования */
+}
+
+.nav_menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px; /* Пространство между кнопкой и названием */
+  position: relative; /* Контекст позиционирования для dropdown */
+}
+
+.nav_menu_btn {
+  background-color: #789ec7;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav_menu_title{
+}
+
+.nav_menu_btn:hover {
+  background-color: #f0f0f0;
+}
+
+.nav_menu_title {
+  text-align: center;
+}
+
+.nav_menu_dropdown {
+  position: absolute; /* Абсолютное позиционирование относительно nav_menu */
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  width: 100%;
+}
+
+.nav_menu-list{
+
+}
+
+.nav_menu-item {
+  font-size: 14px;
+  padding: 8px 16px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.nav_menu-item:hover {
+  background-color: #f0f0f0; /* Фон при наведении */
+}
+
