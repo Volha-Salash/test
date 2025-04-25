@@ -1,7 +1,9 @@
 :root {
-    --border-color: black;
-    --bg-color: #f9f9f9c9;
+    --border-color: 1px solid #ccc;
+    --bg-color: #85aaee;
     --border-radius: 5px;
+    --border: 1px solid #ccc;
+    --textColor: black;
 }
 
 .App {
@@ -18,14 +20,24 @@ body {
 .container {
     max-width: 1780px;
     margin: 10px auto;
-    padding: 0 30px;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+    .banners {
+        gap: 10px;
+      }
 }
 
 .loading {
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-    color: var(--gray);
+    color: var(--bg-color);
     padding: 50px 0;
 }
 

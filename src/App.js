@@ -1,20 +1,20 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/header/Header'
 import NavigationMenu from './components/navigationMenu/NavigationMenu';
 import Footer from './components/footer/footer';
 import MainTemplate from './components/mainTemplate/mainTemplate';
-
+import { db } from "./db/db";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [menuItems, setMenuItems] = useState([]);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      // Загружаем элементы меню
-      setMenuItems(['Menu Item 1', 'Menu Item 2', 'Menu Item 3']);
-      setLoading(false); // Загрузка завершена
+      setData(db);
+      setLoading(false);
     }, 2000);
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,11 +22,12 @@ function App() {
     return <div className="loading">Loading...</div>;
   }
 
+  if (!data) return null;
   return (
     <div className="App">
       <Header />
-      <NavigationMenu menuItems={menuItems} />
-      <MainTemplate />
+      <NavigationMenu navItems={data.navItems} />
+      <MainTemplate {...data} />
       <Footer />
     </div>
   );

@@ -1,0 +1,33 @@
+.content_menu {
+  padding: 5%;
+  border: 1px solid #ccc;
+  text-align: justify;
+  text-transform: capitalize;
+}
+
+.content_menu h2 {
+  text-transform: uppercase;
+  color: var(--bg-color);
+}
+
+@media (max-width: 1024px) {
+  .content_menu {
+    font-size: 0.9rem;
+    padding: 4%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content_menu {
+    font-size: 0.8rem;
+    padding: 3%;
+  }
+}
+
+@media (max-width: 480px) {
+  .content_menu {
+    font-size: 0.75rem;
+    padding: 2%;
+    text-align: left;
+  }
+}

@@ -1,16 +1,10 @@
 .header {
 	padding: 20px 0 20px;
 	margin-bottom: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	border: 2px solid var(--border-color);
-    border-radius: var(--border-radius);
-    background-color: var(--bg-color);
+	border: var(--border);
 }
 
 .header__row {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	text-align: center;
+	color: var(--bg-color);
 }

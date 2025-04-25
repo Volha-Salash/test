@@ -1,16 +1,14 @@
 .nav {
-  border: 2px solid var(--border-color);
-  border-radius: var(--border-radius);
-  background-color: var(--bg-color);
-  position: relative; /* Устанавливаем контекст позиционирования */
+  border: var(--border);
+  position: relative;
 }
 
 .nav_menu {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 20px; /* Пространство между кнопкой и названием */
-  position: relative; /* Контекст позиционирования для dropdown */
+  position: relative;
+  gap: 20px;
 }
 
 .nav_menu_btn {
@@ -23,26 +21,19 @@
   cursor: pointer;
 }
 
-.nav_menu_title{
-}
-
 .nav_menu_btn:hover {
   background-color: #f0f0f0;
 }
 
-.nav_menu_title {
-  text-align: center;
-}
-
 .nav_menu_dropdown {
-  position: absolute; /* Абсолютное позиционирование относительно nav_menu */
+  position: absolute;
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   width: 100%;
 }
 
 .nav_menu-list{
-
+color: var(--bg-color);
 }
 
 .nav_menu-item {
@@ -53,6 +44,6 @@
 }
 
 .nav_menu-item:hover {
-  background-color: #f0f0f0; /* Фон при наведении */
+  background-color: #f0f0f0;
 }
 
