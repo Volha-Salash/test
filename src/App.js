@@ -1,30 +1,41 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const Header_1 = __importDefault(require("./components/header/Header"));
-const NavigationMenu_1 = __importDefault(require("./components/navigationMenu/NavigationMenu"));
-const footer_1 = __importDefault(require("./components/footer/footer"));
-const mainTemplate_1 = __importDefault(require("./components/mainTemplate/mainTemplate"));
-const db_1 = require("./db/db");
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "./redux/slices/productsSlice";
+import Header from "./components/header/Header";
+import NavigationMenu from "./components/navigationMenu/NavigationMenu";
+import MainTemplate from "components/mainTemplate/mainTemplate";
+import Footer from "components/footer/footer";
+import { colors } from "./consts/types";
 function App() {
-    const [loading, setLoading] = (0, react_1.useState)(true);
-    const [data, setData] = (0, react_1.useState)(null);
-    (0, react_1.useEffect)(() => {
-        const timer = setTimeout(() => {
-            setData(db_1.db);
-            setLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer);
-    }, []);
-    if (loading) {
-        return (0, jsx_runtime_1.jsx)("div", { className: "loading", children: "Loading..." });
-    }
-    if (!data)
-        return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {});
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "App", children: [(0, jsx_runtime_1.jsx)(Header_1.default, {}), (0, jsx_runtime_1.jsx)(NavigationMenu_1.default, { navItems: data.navItems }), (0, jsx_runtime_1.jsx)(mainTemplate_1.default, Object.assign({}, data)), (0, jsx_runtime_1.jsx)(footer_1.default, {})] }));
+    const dispatch = useDispatch();
+    const { products, loading, error } = useSelector((state) => state.products);
+    useEffect(() => {
+        dispatch(fetchProducts());
+    }, [dispatch]);
+    if (loading)
+        return _jsx("div", { className: "loading", children: "Loading..." });
+    if (error)
+        return _jsxs("div", { className: "error", children: ["\u041E\u0448\u0438\u0431\u043A\u0430 \u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438 \u0434\u0430\u043D\u043D\u044B\u0445: ", error] });
+    const navItems = [...new Set(products.map((product) => product.category))]
+        .filter((category) => !!category)
+        .map((category, index) => ({
+        name: category,
+        newColor: colors[index % colors.length],
+    }));
+    const menuItems = Array.from(new Set(products
+        .map((product) => product.brand)
+        .filter((brand) => !!brand && brand.trim() !== "")));
+    const bannerData = products
+        .map((product) => {
+        var _a, _b;
+        return ({
+            text: product.description,
+            link: "#!",
+            image: (_b = (_a = product.images) === null || _a === void 0 ? void 0 : _a[0]) !== null && _b !== void 0 ? _b : ""
+        });
+    })
+        .filter((banner) => !!banner.text.trim() && !!banner.image.trim());
+    return (_jsxs("div", { className: "App", children: [_jsx(Header, {}), _jsx(NavigationMenu, { navItems: navItems }), _jsx(MainTemplate, { menuItems: menuItems, bannerData: bannerData, titles: [] }), _jsx(Footer, {})] }));
 }
-exports.default = App;
+export default App;

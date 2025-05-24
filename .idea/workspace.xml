@@ -4,8 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="769f6691-68f8-4456-b09c-1e7887346a95" name="Changes" comment="">
+    <list default="true" id="769f6691-68f8-4456-b09c-1e7887346a95" name="Changes" comment="3">
+      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/slices/counterSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/slices/counterSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/slices/productsSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/slices/productsSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainTemplate/banners/Banners.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainTemplate/banners/Banners.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainTemplate/content/Content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainTemplate/content/Content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainTemplate/leftMenu/LeftMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainTemplate/leftMenu/LeftMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainTemplate/mainTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainTemplate/mainTemplate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navigationMenu/NavigationMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navigationMenu/NavigationMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/consts/consts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/consts/consts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/consts/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/consts/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/consts/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/consts/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/db.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +72,12 @@
     &quot;accountId&quot;: &quot;ef0c43ed-c4a4-47a3-a887-0f5d7c68874a&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/test_css/package-lock.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/test_css/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/test_css/tsconfig.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -52,19 +88,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "ts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\test_css\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,6 +115,8 @@
       <workItem from="1745687260244" duration="8269000" />
       <workItem from="1745742210614" duration="1226000" />
       <workItem from="1745746290884" duration="154000" />
+      <workItem from="1748105669606" duration="102000" />
+      <workItem from="1748113841799" duration="5081000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -119,7 +158,31 @@
       <option name="project" value="LOCAL" />
       <updated>1745705299549</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2">
+      <option name="closed" value="true" />
+      <created>1748105706175</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1748105706175</updated>
+    </task>
+    <task id="LOCAL-00007" summary="3">
+      <option name="closed" value="true" />
+      <created>1748119139446</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748119139446</updated>
+    </task>
+    <task id="LOCAL-00008" summary="3">
+      <option name="closed" value="true" />
+      <created>1748119201231</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748119201231</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +201,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="1" />
+                        <option value="ts" />
                       </list>
                     </value>
                   </entry>
@@ -152,10 +215,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="2" />
     <MESSAGE value="4" />
-    <MESSAGE value="3" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="2" />
+    <MESSAGE value="3" />
+    <option name="LAST_COMMIT_MESSAGE" value="3" />
   </component>
 </project>

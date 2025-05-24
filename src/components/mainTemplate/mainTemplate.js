@@ -1,19 +1,15 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const LeftMenu_1 = __importDefault(require("./leftMenu/LeftMenu"));
-const Content_1 = __importDefault(require("./content/Content"));
-const Banners_1 = __importDefault(require("./banners/Banners"));
-const consts_1 = require("../../consts/consts");
-require("./mainTemplate.css");
-const MainTemplate = ({ menuItems, bannerData, titles }) => {
-    const [activeTab, setActiveTab] = (0, react_1.useState)(0);
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from "react";
+import LeftMenu from "./leftMenu/LeftMenu";
+import Content from "./content/Content";
+import Banners from "./banners/Banners";
+import { randomTextGenerator } from "../../consts/consts";
+import "./mainTemplate.css";
+const MainTemplate = (props) => {
+    const { menuItems, bannerData, titles } = props;
+    const [activeTab, setActiveTab] = useState(0);
     if (!menuItems || !bannerData || !titles)
         return null;
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "main_template", children: [(0, jsx_runtime_1.jsx)(LeftMenu_1.default, { menuItems: menuItems, activeTab: activeTab, handleChange: setActiveTab }), (0, jsx_runtime_1.jsx)(Content_1.default, { titles: titles, activeTab: activeTab, randomTextGenerator: consts_1.randomTextGenerator }), (0, jsx_runtime_1.jsx)(Banners_1.default, { bannerData: bannerData })] }));
+    return (_jsxs("div", { className: "main_template", children: [_jsx(LeftMenu, { menuItems: menuItems, activeTab: activeTab, handleChange: setActiveTab }), _jsx(Content, { titles: titles, activeTab: activeTab, randomTextGenerator: randomTextGenerator }), _jsx(Banners, { bannerData: bannerData })] }));
 };
-exports.default = MainTemplate;
+export default MainTemplate;

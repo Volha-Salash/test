@@ -1,10 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-require("../banners/banners.css");
-const Banners = ({ bannerData }) => {
+import { jsx as _jsx } from "react/jsx-runtime";
+import "../banners/banners.css";
+const Banners = (props) => {
+    const { bannerData } = props;
     if (!bannerData || bannerData.length === 0)
         return null;
-    return ((0, jsx_runtime_1.jsx)("div", { className: "banners", children: bannerData.map((banner, index) => ((0, jsx_runtime_1.jsx)("a", { href: banner.link, className: "banner", children: banner.text }, index))) }));
+    return (_jsx("div", { className: "banners", children: bannerData.map((banner, index) => (_jsx("a", { href: banner.link, className: "banner", children: _jsx("img", { src: banner.image, alt: banner.text, className: "banner-image" }) }, index))) }));
 };
-exports.default = Banners;
+export default Banners;

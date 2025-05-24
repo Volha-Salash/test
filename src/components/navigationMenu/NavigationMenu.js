@@ -1,15 +1,11 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const material_1 = require("@mui/material");
-const Menu_1 = __importDefault(require("@mui/icons-material/Menu"));
-require("./navigationMenu.css");
-const NavigationMenu = ({ navItems }) => {
-    const [navItem, setNavItem] = (0, react_1.useState)(null);
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from "react";
+import { Menu as MuiMenu, MenuItem, Button } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import "./navigationMenu.css";
+const NavigationMenu = (props) => {
+    const { navItems } = props;
+    const [navItem, setNavItem] = useState(null);
     const openPopup = (event) => {
         setNavItem(event.currentTarget);
     };
@@ -22,6 +18,6 @@ const NavigationMenu = ({ navItems }) => {
     };
     if (!navItems || navItems.length === 0)
         return null;
-    return ((0, jsx_runtime_1.jsx)("div", { className: "nav", children: (0, jsx_runtime_1.jsx)("div", { className: "container", children: (0, jsx_runtime_1.jsxs)("nav", { className: "nav_menu", "aria-label": "Menu Navigation", children: [(0, jsx_runtime_1.jsx)(material_1.Button, { className: "nav_menu_btn", onClick: openPopup, "aria-haspopup": "true", "aria-expanded": Boolean(navItem), "aria-controls": "navigation_menu", title: "Menu", children: (0, jsx_runtime_1.jsx)(Menu_1.default, { color: "action" }) }), (0, jsx_runtime_1.jsx)("h2", { children: "Menu" }), (0, jsx_runtime_1.jsx)(material_1.Menu, { id: "navigation_menu", anchorEl: navItem, open: Boolean(navItem), onClose: closePopup, className: "nav_menu_dropdown", children: (0, jsx_runtime_1.jsx)("ul", { className: "nav_menu-list", children: navItems.map((item, index) => ((0, jsx_runtime_1.jsx)("li", { children: (0, jsx_runtime_1.jsx)(material_1.MenuItem, { onClick: () => handleClick(item), className: "nav_menu-item", role: "button", children: item.name }) }, index))) }) })] }) }) }));
+    return (_jsx("div", { className: "nav", children: _jsx("div", { className: "container", children: _jsxs("nav", { className: "nav_menu", "aria-label": "Menu Navigation", children: [_jsx(Button, { className: "nav_menu_btn", onClick: openPopup, "aria-haspopup": "true", "aria-expanded": Boolean(navItem), "aria-controls": "navigation_menu", title: "Menu", children: _jsx(MenuIcon, { color: "action" }) }), _jsx("h2", { children: "Menu" }), _jsx(MuiMenu, { id: "navigation_menu", anchorEl: navItem, open: Boolean(navItem), onClose: closePopup, className: "nav_menu_dropdown", children: _jsx("ul", { className: "nav_menu-list", children: navItems.map((item, index) => (_jsx("li", { children: _jsx(MenuItem, { onClick: () => handleClick(item), className: "nav_menu-item", role: "button", children: item.name }) }, index))) }) })] }) }) }));
 };
-exports.default = NavigationMenu;
+export default NavigationMenu;

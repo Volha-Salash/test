@@ -7,7 +7,7 @@ import "./mainTemplate.css";
 
 interface MainTemplateProps {
   menuItems: string[];
-  bannerData: Array<{ text: string; link: string }>;
+  bannerData: Array<{ text: string; link: string, image: string }>;
   titles: string[];
 }
 

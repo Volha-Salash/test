@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Menu as MuiMenu, MenuItem, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./navigationMenu.css";
-import { NavItem } from "../../db/db";
+import { NavItem } from "../../consts/types";
 
 interface NavigationMenuProps {
   navItems: NavItem[];
