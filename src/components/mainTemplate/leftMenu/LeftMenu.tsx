@@ -1,10 +1,16 @@
-import './leftMenu.css';
-import PropTypes from 'prop-types';
+import React from "react";
+import "./leftMenu.css";
 
-const LeftMenu = (props) => {
+interface LeftMenuProps {
+  menuItems: string[];
+  activeTab: number;
+  handleChange: (index: number) => void;
+}
+
+const LeftMenu = (props : LeftMenuProps) => {
   const { menuItems, activeTab, handleChange } = props;
+  if (!menuItems || menuItems.length === 0 || !handleChange) return null;
 
-  if (!menuItems || !handleChange) return null;
   return (
     <div className="menu">
       {menuItems.map((item, index) => (
@@ -18,12 +24,6 @@ const LeftMenu = (props) => {
       ))}
     </div>
   );
-};
-
-LeftMenu.propTypes = {
-  menuItems: PropTypes.array.isRequired,
-  activeTab: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired,
 };
 
 export default LeftMenu;
