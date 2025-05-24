@@ -1,10 +1,10 @@
-export interface Dimensions {
+interface Dimensions {
     width: number;
     height: number;
     depth: number;
   }
   
-export interface Review {
+interface Review {
     rating: number;
     comment: string;
     date: string;
@@ -12,7 +12,7 @@ export interface Review {
     reviewerEmail: string;
   }
   
-  export interface Meta {
+interface Meta {
     createdAt: string;
     updatedAt: string;
     barcode: string;
@@ -46,6 +46,7 @@ export interface Review {
   
   export interface ProductsResponse {
     products: Product[];
+    cachedImages: Record<number, string>;
   }
 
   export interface NavItem {
@@ -58,25 +59,14 @@ export interface Review {
     link: string;
     image: string;
   }
-  
-  export interface Data {
-    navItems: NavItem[];
-    menuItems: string[];
-    titles: string[];
-    bannerData: BannerItem[];
-  }
 
-  export const colors: string[] = ["#34a853", "#fbbc04", "#f28b82", "#fbbc10", "#f28b42"];
-
-  export const titles: string[] = [
-    "Random Generated Content 1",
-    "Random Generated Content 2",
-    "Random Generated Content 3",
-  ];
+  export const colors: string[] = ["#85aaee", "#fbbc04", "#f28b82"];
 
   export interface ProductsState {
     value: any;
-    products: ProductsResponse["products"];
+    products: Product[];
     loading: boolean;
     error: string | null;
+    selectedNavItem: string;
+    cachedImages: Record<number, string>;
   }

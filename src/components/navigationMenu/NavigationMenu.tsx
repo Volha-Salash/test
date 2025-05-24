@@ -3,6 +3,8 @@ import { Menu as MuiMenu, MenuItem, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./navigationMenu.css";
 import { NavItem } from "../../consts/types";
+import { useDispatch } from "react-redux";
+import { selectNavItem } from "../../redux/slices/productsSlice";
 
 interface NavigationMenuProps {
   navItems: NavItem[];
@@ -11,6 +13,7 @@ interface NavigationMenuProps {
 const NavigationMenu = (props: NavigationMenuProps) => {
   const { navItems } = props;
   const [navItem, setNavItem] = useState<HTMLElement | null>(null);
+  const dispatch = useDispatch();
 
   const openPopup = (event: React.MouseEvent<HTMLButtonElement>) => {
     setNavItem(event.currentTarget);
@@ -21,6 +24,7 @@ const NavigationMenu = (props: NavigationMenuProps) => {
   };
 
   const handleClick = (item: NavItem) => {
+    dispatch(selectNavItem(item.name));
     document.documentElement.style.setProperty("--bg-color", item.newColor);
     closePopup();
   };

@@ -1,5 +1,7 @@
-import React from "react";
 import "./leftMenu.css";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "redux/store";
 
 interface LeftMenuProps {
   menuItems: string[];
@@ -9,6 +11,12 @@ interface LeftMenuProps {
 
 const LeftMenu = (props : LeftMenuProps) => {
   const { menuItems, activeTab, handleChange } = props;
+  const { selectedNavItem } = useSelector((state: RootState) => state.products);
+
+  useEffect(() => {
+    handleChange(0);
+  }, [selectedNavItem]);
+
   if (!menuItems || menuItems.length === 0 || !handleChange) return null;
 
   return (

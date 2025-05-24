@@ -15,7 +15,12 @@ export const fetchProducts = createAsyncThunk("products/fetchProducts", (_1, _a)
         if (!response.ok)
             throw new Error(`Ошибка HTTP: ${response.status}`);
         const data = yield response.json();
-        return data.products;
+        const cachedImages = data.products.reduce((acc, product) => {
+            var _a, _b;
+            acc[product.id] = (_b = (_a = product.images) === null || _a === void 0 ? void 0 : _a[0]) !== null && _b !== void 0 ? _b : "";
+            return acc;
+        }, {});
+        return { products: data.products, cachedImages };
     }
     catch (error) {
         return rejectWithValue(error instanceof Error ? error.message : "Неизвестная ошибка");
@@ -23,6 +28,8 @@ export const fetchProducts = createAsyncThunk("products/fetchProducts", (_1, _a)
 }));
 const initialState = {
     products: [],
+    selectedNavItem: '',
+    cachedImages: {},
     loading: false,
     error: null,
     value: undefined
@@ -30,7 +37,11 @@ const initialState = {
 const productsSlice = createSlice({
     name: "products",
     initialState,
-    reducers: {},
+    reducers: {
+        selectNavItem: (state, action) => {
+            state.selectedNavItem = action.payload;
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchProducts.pending, (state) => {
@@ -38,8 +49,10 @@ const productsSlice = createSlice({
             state.error = null;
         })
             .addCase(fetchProducts.fulfilled, (state, action) => {
+            const { products, cachedImages } = action.payload; // ✅ Деструктурируем данные
             state.loading = false;
-            state.products = action.payload;
+            state.products = products; // ✅ Теперь `products` получает массив
+            state.cachedImages = cachedImages; // ✅ `cachedImages` получает объект
         })
             .addCase(fetchProducts.rejected, (state, action) => {
             state.loading = false;
@@ -47,5 +60,5 @@ const productsSlice = createSlice({
         });
     },
 });
-const productsReducer = productsSlice.reducer;
-export default productsReducer;
+export const { selectNavItem } = productsSlice.actions;
+export default productsSlice.reducer;
