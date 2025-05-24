@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
-import { Menu as MuiMenu, MenuItem, Button } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import PropTypes from 'prop-types';
-import './navigationMenu.css';
+import React, { useState } from "react";
+import { NavItem } from "../../consts/types";
+import { useDispatch } from "react-redux";
+import { selectNavItem } from "../../redux/slices/productsSlice";
+import { Menu as MuiMenu, MenuItem, Button } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import "./navigationMenu.css";
 
-const NavigationMenu = (props) => {
+interface NavigationMenuProps {
+  navItems: NavItem[];
+}
+
+const NavigationMenu = (props: NavigationMenuProps) => {
   const { navItems } = props;
-  const [navItem, setNavItem] = useState(null);
+  const [navItem, setNavItem] = useState<HTMLElement | null>(null);
+  const dispatch = useDispatch();
 
-  const openPopup = (event) => {
+  const openPopup = (event: React.MouseEvent<HTMLButtonElement>) => {
     setNavItem(event.currentTarget);
   };
 
@@ -16,13 +23,14 @@ const NavigationMenu = (props) => {
     setNavItem(null);
   };
 
-  const handleClick = (item) => {
-    if(!item) return;
-    document.documentElement.style.setProperty('--bg-color', item.newColor);
+  const handleClick = (item: NavItem) => {
+    dispatch(selectNavItem(item.name));
+    document.documentElement.style.setProperty("--bg-color", item.newColor);
     closePopup();
   };
 
-  if (!navItems) return null;
+  if (!navItems || navItems.length === 0) return null;
+
   return (
     <div className="nav">
       <div className="container">
@@ -33,9 +41,9 @@ const NavigationMenu = (props) => {
             aria-haspopup="true"
             aria-expanded={Boolean(navItem)}
             aria-controls="navigation_menu"
-            title='Menu'
+            title="Menu"
           >
-            <MenuIcon color='action'></MenuIcon>
+            <MenuIcon color="action" />
           </Button>
           <h2>Menu</h2>
           <MuiMenu
@@ -52,6 +60,7 @@ const NavigationMenu = (props) => {
                     onClick={() => handleClick(item)}
                     className="nav_menu-item"
                     role="button"
+                    component="div"
                   >
                     {item.name}
                   </MenuItem>
@@ -63,10 +72,6 @@ const NavigationMenu = (props) => {
       </div>
     </div>
   );
-};
-
-NavigationMenu.propTypes = {
-  navItems: PropTypes.array.isRequired
 };
 
 export default NavigationMenu;

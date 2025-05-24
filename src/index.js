@@ -1,13 +1,10 @@
-import React from 'react';
+import { jsx as _jsx } from "react/jsx-runtime";
 import ReactDOM from 'react-dom/client';
-import App from './App';
-
-import './styles/reset.css';
-import './styles/common.css'
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import { Provider } from 'react-redux';
+import App from "./App";
+import "./styles/reset.css";
+import "./styles/common.css";
+import store from './redux/store';
+const rootElement = document.getElementById("root");
+const root = ReactDOM.createRoot(rootElement);
+root.render(_jsx(Provider, { store: store, children: _jsx(App, {}) }));

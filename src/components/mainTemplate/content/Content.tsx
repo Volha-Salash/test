@@ -1,9 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
 import '../content/content.css';
 import { randomTextGenerator } from "../../../consts/consts";
 
-const Content = (props) => {
+interface ContentProps {
+  titles: string[];
+  activeTab: number;
+  randomTextGenerator: (wordCount?: number) => string;
+}
+
+const Content = (props: ContentProps) => {
   const { titles, activeTab } = props;
 
   if (!titles) return null;
@@ -13,11 +17,6 @@ const Content = (props) => {
       <p>{randomTextGenerator()}</p>
     </div>
   );
-};
-
-Content.propTypes = {
-  titles: PropTypes.array.isRequired,
-  activeTab: PropTypes.number.isRequired
 };
 
 export default Content;
