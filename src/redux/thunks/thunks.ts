@@ -11,14 +11,12 @@ export const fetchProducts = createAsyncThunk(
             if (!response.ok) throw new Error(`Ошибка HTTP: ${response.status}`);
             const data: ProductsResponse = await response.json();
 
-            const cachedImages = data.products.reduce((acc, product) => {
-                acc[product.id] = product.images?.[0] ?? "";
-                return acc;
-            }, {} as Record<number, string>);
-
+            const cachedImages = Object.fromEntries(
+                data?.products?.map((product) => [product.id, product.images?.[0] ?? ""])
+            );                           
             return { products: data.products, cachedImages };
         } catch (error) {
-            return rejectWithValue(error instanceof Error ? error.message : "Unknown error");
+            return rejectWithValue(error);
         }
     }
 );

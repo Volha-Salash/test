@@ -19,19 +19,14 @@ const MainTemplate = (props: MainTemplateProps) => {
   const [bannerData, setBannerData] = useState<BannerItem[]>([]);
   const { cachedImages } = useSelector((state: RootState) => state.products);
 
-  const menuItems: string[] = selectedNavItem
-    ? Array.from(new Set(
-        products
-          .filter((product) => product.category === selectedNavItem)
-          .map((product) => product.brand)
-          .filter((brand): brand is string => !!brand && brand.trim() !== "")
-      ))
-    : Array.from(new Set(
-        products
-          .filter((product) => product.category === "beauty")
-          .map((product) => product.brand)
-          .filter((brand): brand is string => !!brand && brand.trim() !== "")
-      ));
+  const menuItems: string[] = Array.from(
+    new Set(
+      products
+        .filter(({ category }) => category === (selectedNavItem || "beauty"))
+        .map(({ brand }) => brand)
+        .filter((brand): brand is string => !!brand?.trim())
+    )
+  );
 
       useEffect(() => {
         if (!products.length) return; 

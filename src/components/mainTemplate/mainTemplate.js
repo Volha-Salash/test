@@ -11,15 +11,10 @@ const MainTemplate = (props) => {
     const [activeTab, setActiveTab] = useState(0);
     const [bannerData, setBannerData] = useState([]);
     const { cachedImages } = useSelector((state) => state.products);
-    const menuItems = selectedNavItem
-        ? Array.from(new Set(products
-            .filter((product) => product.category === selectedNavItem)
-            .map((product) => product.brand)
-            .filter((brand) => !!brand && brand.trim() !== "")))
-        : Array.from(new Set(products
-            .filter((product) => product.category === "beauty")
-            .map((product) => product.brand)
-            .filter((brand) => !!brand && brand.trim() !== "")));
+    const menuItems = Array.from(new Set(products
+        .filter(({ category }) => category === (selectedNavItem || "beauty"))
+        .map(({ brand }) => brand)
+        .filter((brand) => !!(brand === null || brand === void 0 ? void 0 : brand.trim()))));
     useEffect(() => {
         if (!products.length)
             return;
